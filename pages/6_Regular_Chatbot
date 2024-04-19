@@ -1,0 +1,11 @@
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI()
+chunks = []
+
+async for chunk in llm.astream("hello. tell me what is the difference between kubernetes and docker"):
+    chunks.append(chunk)
+    print(chunk.content, end="|", flush=True)
+
+# |K|ubernetes| and| Docker| are| both| popular| tools| used| in| the| world| of| container|ization|,| but| they| serve| different| purposes| and| have| different| functionalities|.
+...
